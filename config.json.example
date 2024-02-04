@@ -1,0 +1,8 @@
+{
+    "porcupine": {
+        "access_key": "your-access-key"
+    },
+    "eleven_labs": {
+        "api_key": "your-api-key"
+    }
+}
