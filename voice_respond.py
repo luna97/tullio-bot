@@ -2,16 +2,22 @@ from pygame import mixer
 import pygame
 from io import BytesIO
 import tempfile
+import json
+
+with open('config.json') as f:
+    config = json.load(f)
 
 from elevenlabs import set_api_key
 import elevenlabs
-set_api_key("4e9213ac2d4ca0e46ea76bd844a4f832")
+set_api_key(config["elevenlabs"]["api_key"])
 
 from gtts import gTTS
 import os
 
 # TODO: Implement logic in order to use elevenlabs when possible
 # if no tokens available use gTTs
+
+
 
 def respond(text, lang='it'):
     # Use a temporary file to store the audio
