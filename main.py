@@ -76,6 +76,7 @@ def after_wake_word():
         with sr.Microphone() as source:
             try:
                 # Record the user's speech
+                audio = sr.adjust_for_ambient_noise(source)
                 audio = recognizer.listen(source, timeout=5)
 
                 print("Recording stopped, processing...")
