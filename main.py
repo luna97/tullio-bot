@@ -70,16 +70,17 @@ def after_wake_word():
     while not exit_condition:
 
         recognizer = sr.Recognizer()
-        recognizer.energy_threshold = 2000
+        recognizer.energy_threshold = 300
 
         print("Recording...")
         with sr.Microphone() as source:
-            # Record the user's speech
-            audio = recognizer.listen(source, timeout=5)
-
-            print("Recording stopped, processing...")
-
             try:
+                # Record the user's speech
+                audio = recognizer.listen(source, timeout=10)
+
+                print("Recording stopped, processing...")
+
+
                 # Recognize speech using Google Web Speech API
                 text = recognizer.recognize_google(audio, language="it-IT")
                 print(f"You said: {text}")
