@@ -76,7 +76,7 @@ def after_wake_word():
         with sr.Microphone() as source:
             try:
                 # Record the user's speech
-                audio = recognizer.listen(source, timeout=10)
+                audio = recognizer.listen(source, timeout=5)
 
                 print("Recording stopped, processing...")
 
@@ -94,6 +94,7 @@ def after_wake_word():
                 respond("Mi dispiace, non ho capito. Riprova.")
                 print(f"Could not request results from Google Speech Recognition service; {e}")
             except sr.exceptions.WaitTimeoutError:
+                respond("Arrivederci!")
                 print("Timeout, no speech detected.")
                 exit_condition = True
             finally:
