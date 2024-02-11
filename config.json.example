@@ -1,8 +1,13 @@
 {
     "porcupine": {
-        "access_key": "your-access-key"
+        "access_key": "",
+        "keyword_paths": ["data/tulio_mac.ppn"],
+        "model_path": "data/porcupine_params_it.pv"
     },
-    "eleven_labs": {
-        "api_key": "your-api-key"
+    "elevenlabs": {
+        "api_key": ""
+    },
+    "cohere": {
+        "api_key": ""
     }
 }

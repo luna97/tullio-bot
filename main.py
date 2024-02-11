@@ -33,6 +33,8 @@ class CohereLLM:#(LLMInterface):
         ]
 
     def respond_to_query(self, query):
+        # if the LLM was last used more than 5 minutes ago, reset history
+        
         response = self.co.chat(
             query,
             chat_history=self.history,
@@ -40,6 +42,9 @@ class CohereLLM:#(LLMInterface):
         self.history.append({'role': 'User', 'message': query})
         self.history.append({'role': 'Chatbot', 'message': response.text})
         return response.text
+    
+    def reset_history(self):
+        self.history = self.history[:1]
 
 lmm = CohereLLM()
 
@@ -115,6 +120,7 @@ def listen():
                 print('Detected wake word')
                 recoder.stop()
                 after_wake_word()
+                lmm.reset_history()
                 recoder.start()
                 print('Listening for wake word...')
 
