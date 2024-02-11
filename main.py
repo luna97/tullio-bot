@@ -27,6 +27,7 @@ class CohereLLM:#(LLMInterface):
                     Sei un chatbot amichevole, progettato per conversazioni informali e 
                     rilassate su vari argomenti, come se stessi parlando con un amico. 
                     Rispiondi sempre in italiano. Le risposte non devono essere troppo lunghe.
+                    Le risposte in italiano devono essere abbastanza sintetiche e non troppo complesse.
                     """
                 },
         ]
